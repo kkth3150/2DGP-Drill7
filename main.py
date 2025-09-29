@@ -41,6 +41,19 @@ class SmallBall:
         if(self.y>60):
             self.y -= self.speed
 
+class BigBall:
+    def __init__(self):
+        self.x, self.y = random.randint(0, 800), 599
+        self.image = load_image('ball41x41.png')
+        self.speed = random.randint(1, 7)
+
+    def draw(self):
+        self.image.draw(self.x, self.y)
+
+    def update(self):
+        if(self.y>70):
+            self.y -= self.speed
+
 
 def handle_events():
     global running
@@ -69,6 +82,8 @@ def reset_world():
     team = [Boy() for i in range(10)]
     world += team
 
+    bigballs = [BigBall() for i in range(10)]
+    world += bigballs
 
     smallballs = [SmallBall() for i in range(10)]
     world += smallballs
