@@ -38,7 +38,8 @@ class SmallBall:
         self.image.draw(self.x, self.y)
 
     def update(self):
-        pass
+        if(self.y>60):
+            self.y -= self.speed
 
 
 def handle_events():
